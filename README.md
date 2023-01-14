@@ -1,5 +1,5 @@
 # Swachh-Bharat
-A web app built using Spring-Boot &amp; ReactJS, that provides the functionality of adding the garbage dum[ location through a web-interface. After that driver guys will get the notification alert, based on the location to pickup the garbage and help in keeping the city clean. Each successfull pickup, provides E-coin to both user &amp; driver.
+A web app built using Spring-Boot &amp; ReactJS, that provides the functionality of adding the garbage dump location through a web-interface. After that driver guys will get the notification alert based on the location, to pickup the garbage and help in keeping the city clean. Each successfull pickup, provides E-coin to both user &amp; driver.
 
 ## Status :-
 In **Development**.
