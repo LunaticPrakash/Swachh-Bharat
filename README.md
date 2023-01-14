@@ -17,6 +17,8 @@ In **Development**.
   - There is an option to track the location, it will open the Google Maps and shows the route to the garbage point.
   - User can edit or delete the added location as per requirement.
   - Whenever user added a garbage dump location, a notification will be sent to the Driver Users of that same city, where that added garbage dump belongs.
+  - Wrote unit-tests for backend services using Junit5 + Mockito + MockMvc.
+  
   
 - Login Page<br>
   <img src="https://user-images.githubusercontent.com/56812557/212472178-13d396df-85c2-4d69-a58f-5e17a1496121.png" alt="Login Page" width="100%" height="100%" >
