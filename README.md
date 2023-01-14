@@ -19,7 +19,7 @@ In **Development**.
   - Whenever user added a garbage dump location, a notification will be sent to the Driver Users of that same city, where that added garbage dump belongs.
   
 - Login Page<br>
-  <img src="(https://user-images.githubusercontent.com/56812557/212472178-13d396df-85c2-4d69-a58f-5e17a1496121.png" alt="Login Page" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/212472178-13d396df-85c2-4d69-a58f-5e17a1496121.png" alt="Login Page" width="100%" height="100%" >
 
 - Registration Page<br>
   <img src="https://user-images.githubusercontent.com/56812557/212472192-a57d0f35-f7ff-4b35-8e58-1eedeb745b56.png" alt="Registration Page" width="100%" height="100%" >
