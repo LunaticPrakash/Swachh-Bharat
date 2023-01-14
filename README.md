@@ -25,10 +25,10 @@ In **Development**.
   <img src="https://user-images.githubusercontent.com/56812557/212472192-a57d0f35-f7ff-4b35-8e58-1eedeb745b56.png" alt="Registration Page" width="100%" height="100%" >
   
 - User Dashboard Page<br>
-  <img src="https://user-images.githubusercontent.com/56812557/212472309-21f91d52-b2ae-4fb2-ab37-a15ac9bf08c6.png" alt="User Dashboard Page" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/212472972-32ef9cfd-a002-4107-95b2-83c54117de48.png" alt="User Dashboard Page" width="100%" height="100%" >
   
 - User Profile Page<br>
-  <img src="https://user-images.githubusercontent.com/56812557/212472263-3c2f9498-4f8b-4b8f-9dad-ad5ad80534cb.png" alt="User Profile Page" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/212472970-8636c0e1-c96e-4070-bcdb-754259266e6c.png" alt="User Profile Page" width="100%" height="100%" >
   
 - User Add Location Page<br>
   <img src="https://user-images.githubusercontent.com/56812557/212472327-a12b34eb-684c-4a96-90a4-5a4087644bec.png" alt="User Add Location Page" width="100%" height="100%" >
