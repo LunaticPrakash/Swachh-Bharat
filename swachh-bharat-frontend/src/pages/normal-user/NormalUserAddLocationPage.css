@@ -1,0 +1,32 @@
+.addLocationPage__container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+}
+
+.container__sidebar {
+    position: sticky;
+    top: 0;
+}
+
+.container__addLocationContent {
+    padding: 2px;
+    flex: 1;
+    height: fit-content;
+}
+
+.addLocation__form {
+    width: 100% !important;
+    align-items: flex-start;
+}
+
+.addLocation__form__image {
+    width: 100px;
+    height: 100px;
+}
+
+.addLocation__form__btn {
+    margin: auto;
+}

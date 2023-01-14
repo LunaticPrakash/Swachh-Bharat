@@ -1,0 +1,29 @@
+header {
+    background-color: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar {
+    background-color: var(--primary);
+    height: 8vh;
+}
+
+.nav-bar-options {
+    background-color: var(--primary);
+}
+
+.white-text {
+    color: white;
+}
+
+.white-text:hover {
+    color: white;
+}
+
+@media screen and (max-width: 850px) {
+    .navbar {
+        height: 6vh;
+    }
+}

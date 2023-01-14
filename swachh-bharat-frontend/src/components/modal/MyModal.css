@@ -1,0 +1,59 @@
+.modal__address {
+    margin-top: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 4px;
+    flex-wrap: wrap;
+}
+
+.value {
+    text-align: left;
+    flex: 0.6;
+    align-items: flex-start;
+}
+
+.bold {
+    font-weight: bold;
+    flex: 0.3;
+}
+
+.divider{
+    flex: 0.1;
+}
+
+.modal__image {
+    text-align: center;
+}
+
+.model-footer__option {
+    background-color: var(--primary);
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.red{
+    background-color: rgb(164, 10, 10) !important;
+}
+
+.modal-footer__icon {
+    font-size: 16px;
+    margin-right: 5px;
+    color: white;
+}
+
+.modal-footer__icon-text {
+    font-size: 1rem;
+    color: white;
+}
