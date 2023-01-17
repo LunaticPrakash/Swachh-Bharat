@@ -73,7 +73,7 @@ const NormalUserProfilePage = () => {
                         <div className="card">
                             <div className="card-body">
                                 <div className="d-flex flex-column align-items-center text-center">
-                                    <img src="res/dog.jpg" alt="Admin" className="rounded-circle p-1 bg-primary" width="110" />
+                                    <img src="res/user.png" alt="Admin" className="rounded-circle p-1 bg-primary" width="110" />
                                     <div className="mt-3">
                                         <h4>{user.name}</h4>
                                         <p className="text-secondary mb-1">{user.address}</p>

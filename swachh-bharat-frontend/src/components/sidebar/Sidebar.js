@@ -60,7 +60,7 @@ const Sidebar = () => {
         <div className="nav-heading">
           {isExpanded && (
             <img
-              src="res/dog.jpg"
+              src="res/user.png"
               alt="Prakash"
               className="nav-profile-pic"
             />
