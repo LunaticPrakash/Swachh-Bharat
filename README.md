@@ -13,10 +13,14 @@ In **Development**.
   - Provides role-based authorization. There are two types of user here: Normal User (who will update the garbage dump location) & Driver User (who will pickup/clean the dump).
   - After each successfull pickup, both Normal User & Driver User will get E-coins.
   - A responsive Dashboard to see the added location details & coins earned.
-  - User have the option of uploading the image of location.
+  - User also have the option of uploading the image of location.
   - There is an option to track the location, it will open the Google Maps and shows the route to the garbage point.
   - User can edit or delete the added location as per requirement.
   - Whenever user added a garbage dump location, a notification will be sent to the Driver Users of that same city, where that added garbage dump belongs.
+  - Wrote unit-tests for backend services using Junit5 + Mockito + MockMvc.
+  
+  
+  ## Output :-
   
 - Login Page<br>
   <img src="https://user-images.githubusercontent.com/56812557/212472178-13d396df-85c2-4d69-a58f-5e17a1496121.png" alt="Login Page" width="100%" height="100%" >
@@ -44,4 +48,3 @@ In **Development**.
   
   
 ## Dev :- Prakash Gupta
-
