@@ -1,0 +1,15 @@
+.nuserProfilePage__container {
+    display: flex;
+    height: 100vh;
+    background-color: whitesmoke;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.container__nuserProfileContent {
+    padding: 2px;
+    flex: 1;
+    float: right;
+    height: fit-content;
+}
+

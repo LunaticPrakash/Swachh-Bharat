@@ -72,6 +72,10 @@
     background-color: #4d84e2;
 }
 
+.signupform-form-check {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 850px) {
     .signup-form {
         width: 90%;

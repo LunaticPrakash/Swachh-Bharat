@@ -7,6 +7,8 @@ import { useState } from 'react';
 import HeaderLayout from './components/header/HeaderLayout';
 import NormalUserAddLocationPage from './pages/normal-user/NormalUserAddLocationPage';
 import NormalUserProfilePage from './pages/normal-user/NormalUserProfilePage';
+import DriverUserProfilePage from './pages/driver-user/DriverUserProfilePage';
+import DriverUserDashboardPage from './pages/driver-user/DriverUserDashboardPage';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
           <Route path="/" element={<SigninPage />} />
           <Route path="/register" element={<SignupPage />} />
           <Route path="/dashboard" element={<NormalUserDashboardPage />} />
+          <Route path="/driver-dashboard" element={<DriverUserDashboardPage />} />
           <Route path="/profile" element={<NormalUserProfilePage />} />
+          <Route path="/driver-profile" element={<DriverUserProfilePage />} />
           <Route path="/add-pickup-location" element={<NormalUserAddLocationPage />} />
           <Route path="/edit-pickup-location/:id" element={<NormalUserAddLocationPage />} />
         </Route>

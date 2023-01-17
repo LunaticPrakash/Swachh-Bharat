@@ -1,7 +1,8 @@
 package com.prakash.swachhbharatbackend.services.implementation;
 
 import com.prakash.swachhbharatbackend.exceptions.NotFoundException;
-import com.prakash.swachhbharatbackend.models.User;
+import com.prakash.swachhbharatbackend.models.*;
+import com.prakash.swachhbharatbackend.repositories.RoleRepository;
 import com.prakash.swachhbharatbackend.repositories.UserRepository;
 import com.prakash.swachhbharatbackend.services.UserProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ import org.springframework.stereotype.Service;
 public class UserProfileServiceImpl implements UserProfileService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Override
@@ -39,6 +43,11 @@ public class UserProfileServiceImpl implements UserProfileService {
                 temp.setMobNumber(user.getMobNumber());
                 temp.setAddress(user.getAddress());
 
+                Role driverRole = roleRepository.findById("DRIVER_USER").isPresent() ? roleRepository.findById("DRIVER_USER").get() : null;
+
+                if(temp.getRoles().contains(driverRole)){
+
+                }
                 return temp;
             }
         }

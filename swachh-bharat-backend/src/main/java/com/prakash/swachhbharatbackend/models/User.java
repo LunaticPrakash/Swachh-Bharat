@@ -46,6 +46,9 @@ public class User implements UserDetails {
     @Column(name = "coins_earned", length = 10)
     public String coinsEarned;
 
+    @Column(name = "pickup_cities")
+    private String[] pickupCities;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_role",
             joinColumns = {

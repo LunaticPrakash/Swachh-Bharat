@@ -1,0 +1,83 @@
+.nuserDashboardPage__container {
+    display: flex;
+    height: 100vh;
+    background-color: whitesmoke;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.container__nuserDashboardContent {
+    padding: 2px;
+    flex: 1;
+    float: right;
+    height: fit-content;
+}
+
+.nuserDashboardContent__featured {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.nuserDashboardContent__table--heading {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    font-weight: bold;
+}
+
+.nuserDashboardContent__table--data {
+    border-radius: 12px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.table__address {
+    flex: 0.5;
+}
+
+.table__status {
+    flex: 0.2;
+}
+
+.table__dateAdded {
+    flex: 0.1;
+}
+
+.table__dateCleaned {
+    flex: 0.1;
+}
+
+.table__options {
+    flex: 0.1;
+}
+
+@media screen and (max-width: 850px) {
+    .table__address {
+        flex: 0.50;
+    }
+
+    .table__dateAdded {
+        display: none;
+    }
+
+    .table__dateCleaned {
+        display: none;
+    }
+
+    .table__status {
+        flex: 0.2;
+    }
+
+    .table__options {
+        flex: 0.3;
+    }
+}

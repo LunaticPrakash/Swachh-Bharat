@@ -15,10 +15,10 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
-  const isDriver = user.roles.forEach((r) => {
+  const isDriver = user.roles.map((r) => {
     if (r["roleName"] === "DRIVER_USER") return true;
     return false;
-  });
+  })[0];
 
   const menuItems = [
     {
@@ -29,7 +29,7 @@ const Sidebar = () => {
     {
       text: "Profile",
       icon: <CgProfile />,
-      path: "/profile",
+      path: isDriver ? "/driver-profile" : "/profile",
     },
     {
       text: "Notifications",

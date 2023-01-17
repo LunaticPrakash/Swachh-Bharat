@@ -108,7 +108,7 @@ const SignupPage = () => {
           />
         </div>
         <Form.Check
-          className="my-3"
+          className="my-3 signupform-form-check"
           type="switch"
           id="isDriver-switch"
           label="Register as Driver?"
@@ -116,7 +116,7 @@ const SignupPage = () => {
           checked={isDriver}
         />
         <input onClick={signupHandler} type="submit" value="Register" className="signupform-button" />
-        <p onClick={() => navigate("/")} className="signinform-secondary-text primary-color">Login Here</p>
+        <p onClick={() => navigate("/")} className="signupform-secondary-text primary-color">Login Here</p>
 
       </div>
     </div >
