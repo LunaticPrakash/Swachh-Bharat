@@ -213,6 +213,27 @@ public class PickupLocationServiceTest {
 
     @Order(11)
     @Test
+    public void updatePickupLocation_WithoutCity_ThrowsIllegalArgumentException() {
+        PickupLocation updatedPickupLocation = PickupLocation.builder()
+                .pickLocId(1L)
+                .landmark("Near ABC Mandir")
+                .street("PQR Road")
+                .city("")
+                .state("Mumbai")
+                .country("India")
+                .dateAdded("31-12-2022 08:45:00")
+                .dateCleaned("30-12-2022 06:40:10")
+                .status(true)
+                .userId(2L)
+                .driverId(2L)
+                .build();
+
+        when(pickupLocationRepository.findById(pickupLocation.getPickLocId())).thenReturn(Optional.of(pickupLocation));
+        assertThrows(IllegalArgumentException.class, ()-> pickupLocationService.updatePickupLocation(updatedPickupLocation.getPickLocId(), updatedPickupLocation));
+    }
+
+    @Order(12)
+    @Test
     public void deletePickupLocation_ValidInput_DeletedSuccessfully() throws NotFoundException {
         Long pickLocId = 1L;
         when(pickupLocationRepository.findById(pickLocId)).thenReturn(Optional.of(pickupLocation));
@@ -220,7 +241,7 @@ public class PickupLocationServiceTest {
         verify(pickupLocationRepository, times(1)).delete(pickupLocation);
     }
 
-    @Order(12)
+    @Order(13)
     @Test
     public void deletePickupLocation_WrongPickLocId_ThrowsNotFoundException() throws NotFoundException {
         Long pickLocId = 2L;
