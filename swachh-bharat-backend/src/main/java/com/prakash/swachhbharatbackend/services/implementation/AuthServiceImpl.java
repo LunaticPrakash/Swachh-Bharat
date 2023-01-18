@@ -35,7 +35,7 @@ public class AuthServiceImpl implements AuthService {
     private UserDetailsServiceImpl userDetailsServiceImpl;
 
     @Override
-    public User register(User user) throws IllegalArgumentException, AlreadyExistsException {
+    public User register(User user, boolean isDriver) throws IllegalArgumentException, AlreadyExistsException {
         if (user == null ||
                 user.getName() == null || user.getName().isBlank() ||
                 user.getUsername() == null || user.getUsername().isBlank() ||
@@ -55,7 +55,7 @@ public class AuthServiceImpl implements AuthService {
                 Role role = null;
                 Set<Role> userRoles = new HashSet<>();
 
-                if (user instanceof DriverUser) {
+                if (isDriver) {
                     role = roleRepository.findById("DRIVER_USER").isPresent() ? roleRepository.findById("DRIVER_USER").get() : null;
                 } else {
                     role = roleRepository.findById("NORMAL_USER").isPresent() ? roleRepository.findById("NORMAL_USER").get() : null;

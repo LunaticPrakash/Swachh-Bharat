@@ -1,27 +1,17 @@
 package com.prakash.swachhbharatbackend.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.prakash.swachhbharatbackend.SwachhBharatBackendApplication;
-import com.prakash.swachhbharatbackend.exceptions.AlreadyExistsException;
-import com.prakash.swachhbharatbackend.models.DriverUser;
-import com.prakash.swachhbharatbackend.models.NormalUser;
 import com.prakash.swachhbharatbackend.services.implementation.AuthServiceImpl;
 import org.junit.jupiter.api.*;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.logging.Logger;
 
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)

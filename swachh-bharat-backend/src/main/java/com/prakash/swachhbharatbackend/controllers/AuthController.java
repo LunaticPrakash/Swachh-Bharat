@@ -1,9 +1,8 @@
 package com.prakash.swachhbharatbackend.controllers;
 
 import com.prakash.swachhbharatbackend.exceptions.AlreadyExistsException;
-import com.prakash.swachhbharatbackend.models.DriverUser;
 import com.prakash.swachhbharatbackend.models.LoginRequest;
-import com.prakash.swachhbharatbackend.models.NormalUser;
+import com.prakash.swachhbharatbackend.models.User;
 import com.prakash.swachhbharatbackend.services.implementation.AuthServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,14 +18,13 @@ import java.util.logging.Logger;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private static final Logger LOGGER = Logger.getLogger(AuthController.class.getName());
     @Autowired
     private AuthServiceImpl authService;
 
-    @PostMapping(value = "/register-normal-user")
-    public ResponseEntity<?> registerUser(@RequestBody NormalUser normalUser) {
+    @PostMapping(value = "/register")
+    public ResponseEntity<?> registerUser(@RequestBody User user, @RequestBody Boolean isDriver) {
         try {
-            authService.register(normalUser);
+            authService.register(user, isDriver);
         } catch (AlreadyExistsException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         } catch (IllegalArgumentException e) {
@@ -34,21 +32,7 @@ public class AuthController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
-        return ResponseEntity.status(HttpStatus.OK).body(normalUser);
-    }
-
-    @PostMapping(value = "/register-driver-user")
-    public ResponseEntity<?> registerUser(@RequestBody DriverUser driverUser) {
-        try {
-            authService.register(driverUser);
-            return ResponseEntity.status(HttpStatus.CREATED).body(driverUser);
-        } catch (AlreadyExistsException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
     @PostMapping("/login")

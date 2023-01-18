@@ -10,7 +10,7 @@ import org.springframework.security.authentication.DisabledException;
 public interface AuthService {
 
 
-    User register(User user) throws IllegalArgumentException, AlreadyExistsException;
+    User register(User user, boolean isDriver) throws IllegalArgumentException, AlreadyExistsException;
 
     LoginResponse login(LoginRequest loginRequest) throws DisabledException, BadCredentialsException;
 }

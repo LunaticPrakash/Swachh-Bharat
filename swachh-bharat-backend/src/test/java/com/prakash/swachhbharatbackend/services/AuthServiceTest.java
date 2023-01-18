@@ -54,8 +54,9 @@ public class AuthServiceTest {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(null);
         when(roleRepository.findById("NORMAL_USER")).thenReturn(Optional.of(role));
         when(userRepository.save(user)).thenReturn(user);
+        boolean isDriver = false;
 
-        assertSame(user, authService.register(user));
+        assertSame(user, authService.register(user, isDriver));
     }
 
     @Order(1)
@@ -67,8 +68,9 @@ public class AuthServiceTest {
         when(roleRepository.findById("DRIVER_USER")).thenReturn(Optional.of(role));
         when(passwordEncoder.encode(user.getPassword())).thenReturn(user.getPassword());
         when(userRepository.save(user)).thenReturn(user);
+        boolean isDriver = true;
 
-        assertSame(user, authService.register(user));
+        assertSame(user, authService.register(user, isDriver));
     }
 
     @Order(2)
@@ -80,8 +82,9 @@ public class AuthServiceTest {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(null);
         when(roleRepository.findById("NORMAL_USER")).thenReturn(Optional.of(role));
         when(userRepository.save(user)).thenReturn(user);
+        boolean isDriver = false;
 
-        assertThrows(IllegalArgumentException.class, ()->authService.register(user));
+        assertThrows(IllegalArgumentException.class, ()->authService.register(user, isDriver));
     }
 
     @Order(3)
@@ -93,8 +96,9 @@ public class AuthServiceTest {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(null);
         when(roleRepository.findById("DRIVER_USER")).thenReturn(Optional.of(role));
         when(userRepository.save(user)).thenReturn(user);
+        boolean isDriver = true;
 
-        assertThrows(IllegalArgumentException.class, ()->authService.register(user));
+        assertThrows(IllegalArgumentException.class, ()->authService.register(user, isDriver));
     }
 
     @Order(4)
@@ -106,8 +110,9 @@ public class AuthServiceTest {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(null);
         when(roleRepository.findById("NORMAL_USER")).thenReturn(Optional.of(role));
         when(userRepository.save(user)).thenReturn(user);
+        boolean isDriver = false;
 
-        assertThrows(IllegalArgumentException.class, ()->authService.register(user));
+        assertThrows(IllegalArgumentException.class, ()->authService.register(user, isDriver));
     }
 
     @Order(5)
@@ -119,8 +124,9 @@ public class AuthServiceTest {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(null);
         when(roleRepository.findById("DRIVER_USER")).thenReturn(Optional.of(role));
         when(userRepository.save(user)).thenReturn(user);
+        boolean isDriver = true;
 
-        assertThrows(IllegalArgumentException.class, ()->authService.register(user));
+        assertThrows(IllegalArgumentException.class, ()->authService.register(user, isDriver));
     }
 
     @Order(6)
@@ -131,8 +137,9 @@ public class AuthServiceTest {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
         when(roleRepository.findById("DRIVER_USER")).thenReturn(Optional.of(role));
         when(userRepository.save(user)).thenReturn(user);
+        boolean isDriver = false;
 
-        assertThrows(AlreadyExistsException.class, ()->authService.register(user));
+        assertThrows(AlreadyExistsException.class, ()->authService.register(user, isDriver));
     }
 
     @Order(7)
@@ -143,8 +150,9 @@ public class AuthServiceTest {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
         when(roleRepository.findById("NORMAL_USER")).thenReturn(Optional.of(role));
         when(userRepository.save(user)).thenReturn(user);
+        boolean isDriver = true;
 
-        assertThrows(AlreadyExistsException.class, ()->authService.register(user));
+        assertThrows(AlreadyExistsException.class, ()->authService.register(user, isDriver));
     }
 
 }
