@@ -47,7 +47,7 @@ In **Development**.
   <img src="https://user-images.githubusercontent.com/56812557/213195391-eb5c7404-235e-4c2e-a2b8-8014d9ee17af.png" alt="User Delete Location Popup" width="100%" height="100%" >
   
 - Driver Dashboard Page<br>
-  <img src="https://user-images.githubusercontent.com/56812557/213194466-e717debd-daec-4e6f-9973-c51525e5bf1a.png" alt=Driver Dashboard Page" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/213195919-e84f539e-cd13-4534-a44d-b1a847505abb.png" alt="Driver Dashboard Page" width="100%" height="100%" >
   
 - Driver Profile Page<br>
   <img src="https://user-images.githubusercontent.com/56812557/213193500-29718cfd-f05b-4fb4-aed7-9fb8a3adde06.png" alt="Driver Profile Page" width="100%" height="100%" >
