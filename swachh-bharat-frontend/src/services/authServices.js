@@ -2,13 +2,8 @@ import axios from "axios";
 
 const register = async (user, isDriver) => {
   try {
-    let data = null;
-    if (isDriver) {
-      data = await axios.post("/api/auth/register-driver-user", user);
-    }
-    else {
-      data = await axios.post("/api/auth/register-normal-user", user);
-    }
+
+    let data = await axios.post("/api/auth/register", { user: user, isDriver: isDriver });
     data = data ? data.data : null;
     if (data && data.userId) {
       console.log(
@@ -24,8 +19,8 @@ const register = async (user, isDriver) => {
     }
   }
   catch (error) {
-    console.error("authServices:register() Error: ", error.response.data);
-    return { isRegistered: false, error: error.response.data };
+    console.error("authServices:register() Error: ", error.response ? error.response.data : error);
+    return { isRegistered: false, error: error.response ? error.response.data : error };
   }
 };
 

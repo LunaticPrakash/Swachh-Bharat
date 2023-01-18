@@ -53,7 +53,6 @@ const SignupPage = () => {
           `User is not registered yet.\nError : ${data.payload}`,
           "error"
         );
-        navigate("/");
       }
     });
   }

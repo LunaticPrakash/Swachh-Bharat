@@ -2,6 +2,7 @@ package com.prakash.swachhbharatbackend.controllers;
 
 import com.prakash.swachhbharatbackend.exceptions.AlreadyExistsException;
 import com.prakash.swachhbharatbackend.models.LoginRequest;
+import com.prakash.swachhbharatbackend.models.RegisterRequest;
 import com.prakash.swachhbharatbackend.models.User;
 import com.prakash.swachhbharatbackend.services.implementation.AuthServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
 @CrossOrigin
@@ -22,7 +24,10 @@ public class AuthController {
     private AuthServiceImpl authService;
 
     @PostMapping(value = "/register")
-    public ResponseEntity<?> registerUser(@RequestBody User user, @RequestBody Boolean isDriver) {
+    public ResponseEntity<?> registerUser(@RequestBody RegisterRequest registerRequest) {
+        User user = registerRequest.getUser();
+        boolean isDriver = registerRequest.isDriver();
+
         try {
             authService.register(user, isDriver);
         } catch (AlreadyExistsException e) {
