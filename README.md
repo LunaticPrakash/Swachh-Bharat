@@ -29,7 +29,7 @@ In **Development**.
   <img src="https://user-images.githubusercontent.com/56812557/212472192-a57d0f35-f7ff-4b35-8e58-1eedeb745b56.png" alt="Registration Page" width="100%" height="100%" >
   
 - User Dashboard Page<br>
-  <img src="https://user-images.githubusercontent.com/56812557/212472972-32ef9cfd-a002-4107-95b2-83c54117de48.png" alt="User Dashboard Page" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/213194665-b32e3f8c-6f6b-4e11-a787-389be9de41b5.png" alt="User Dashboard Page" width="100%" height="100%" >
   
 - User Profile Page<br>
   <img src="https://user-images.githubusercontent.com/56812557/212472970-8636c0e1-c96e-4070-bcdb-754259266e6c.png" alt="User Profile Page" width="100%" height="100%" >
@@ -38,13 +38,22 @@ In **Development**.
   <img src="https://user-images.githubusercontent.com/56812557/212472327-a12b34eb-684c-4a96-90a4-5a4087644bec.png" alt="User Add Location Page" width="100%" height="100%" >
   
 - User Location Details Modal/Popup (Appears after clicking on any location shown in Dashboard)<br>
-  <img src="https://user-images.githubusercontent.com/56812557/212472394-4dfc55b6-2be5-4f6f-acd9-2f3cb02860be.png" alt="User Location Details Modal" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/213194905-102b6567-8e5d-4281-9f69-9f6a7b933c49.png" alt="User Location Details Modal" width="100%" height="100%" >
   
 - User Edit Location Page<br>
-  <img src="https://user-images.githubusercontent.com/56812557/212472443-12ec95a2-5c9e-49b5-8b2a-775fb5d01be6.png" alt="User Edit Location Page" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/213195071-d409e176-3b5d-4e74-9b63-a867d34bfe13.png" alt="User Edit Location Page" width="100%" height="100%" >
   
 - User Delete Location Popup<br>
-  <img src="https://user-images.githubusercontent.com/56812557/212472475-67caeb29-9a50-40ec-8a79-3c772df825e2.png" alt="User Delete Location Popup" width="100%" height="100%" >
+  <img src="https://user-images.githubusercontent.com/56812557/213195391-eb5c7404-235e-4c2e-a2b8-8014d9ee17af.png" alt="User Delete Location Popup" width="100%" height="100%" >
+  
+- Driver Dashboard Page<br>
+  <img src="https://user-images.githubusercontent.com/56812557/213194466-e717debd-daec-4e6f-9973-c51525e5bf1a.png" alt=Driver Dashboard Page" width="100%" height="100%" >
+  
+- Driver Profile Page<br>
+  <img src="https://user-images.githubusercontent.com/56812557/213193500-29718cfd-f05b-4fb4-aed7-9fb8a3adde06.png" alt="Driver Profile Page" width="100%" height="100%" >
+  
+- Driver Popup/Modal<br>
+  <img src="https://user-images.githubusercontent.com/56812557/213193515-db8473d2-4d2d-4e0f-9414-e06c7390dd6e.png" alt="Driver Popup/Modal" width="100%" height="100%" >
   
   
 ## Dev :- Prakash Gupta
