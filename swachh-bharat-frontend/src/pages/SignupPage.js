@@ -35,7 +35,7 @@ const SignupPage = () => {
       password: password,
       mobNumber: mobNumber,
       address: address,
-      coinsEarned: 0
+      coinsEarned: 0,
     }
 
     register(dispatch, user, isDriver).then((data) => {

@@ -46,9 +46,10 @@ public class UserProfileServiceImpl implements UserProfileService {
                 Role driverRole = roleRepository.findById("DRIVER_USER").isPresent() ? roleRepository.findById("DRIVER_USER").get() : null;
 
                 if(temp.getRoles().contains(driverRole)){
-
+                    temp.setPickupCities(user.getPickupCities());
+                    System.out.println("temp : " + temp.toString());
                 }
-                return temp;
+                return userRepository.save(temp);
             }
         }
     }

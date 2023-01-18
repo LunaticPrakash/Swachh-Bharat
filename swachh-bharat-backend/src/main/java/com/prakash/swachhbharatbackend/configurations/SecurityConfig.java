@@ -54,7 +54,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/api/user/**").hasAnyAuthority("NORMAL_USER", "DRIVER_USER")
                         .requestMatchers(HttpMethod.GET, "/api/pickup-location/**").hasAnyAuthority("NORMAL_USER", "DRIVER_USER")
                         .requestMatchers(HttpMethod.POST, "/api/pickup-location/**").hasAuthority("NORMAL_USER")
-                        .requestMatchers(HttpMethod.PUT, "/api/pickup-location/**").hasAuthority("NORMAL_USER")
+                        .requestMatchers(HttpMethod.PUT, "/api/pickup-location/**").hasAnyAuthority("NORMAL_USER", "DRIVER_USER")
                         .requestMatchers(HttpMethod.DELETE, "/api/pickup-location/**").hasAuthority("NORMAL_USER")
                         .anyRequest().authenticated())
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

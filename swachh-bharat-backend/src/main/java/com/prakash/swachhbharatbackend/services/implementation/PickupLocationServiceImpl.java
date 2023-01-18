@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -56,6 +57,11 @@ public class PickupLocationServiceImpl implements PickupLocationService {
     @Override
     public List<PickupLocation> getPickupLocationByUserId(Long userId) {
         return getPickupLocation().stream().filter(loc -> loc.getUserId().equals(userId)).toList();
+    }
+
+    @Override
+    public List<PickupLocation> getPickupLocationByCities(String[] cities) {
+        return getPickupLocation().stream().filter(loc -> Arrays.stream(cities).anyMatch(c -> c.equals(loc.getCity()))).toList();
     }
 
     @Override

@@ -37,6 +37,22 @@ export const fetchPickupLocation = async (dispatch, userId, token) => {
     }
 };
 
+export const fetchPickupLocationByCities = async (dispatch, cities, token) => {
+    dispatch({ type: pickupLocationConstants.FETCH_PICKUPLOCATION_REQUEST });
+    const data = await pickupLocationServices.fetchPickupLocationByCities(cities, token);
+    if (data && Array.isArray(data)) {
+        return dispatch({
+            type: pickupLocationConstants.FETCH_PICKUPLOCATION_SUCCESS,
+            payload: data,
+        });
+    } else {
+        return dispatch({
+            type: pickupLocationConstants.FETCH_PICKUPLOCATION_FAILURE,
+            payload: null,
+        });
+    }
+};
+
 export const updatePickupLocation = async (dispatch, pickupLocation, token) => {
     dispatch({ type: pickupLocationConstants.UPDATE_PICKUPLOCATION_REQUEST });
     const { data, isUpdated, error } =

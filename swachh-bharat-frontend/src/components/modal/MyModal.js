@@ -8,7 +8,7 @@ import swal from "sweetalert";
 import * as pickupLocationConstants from "../../constants/pickupLocationConstants";
 import { useDispatch } from "react-redux";
 import { IoNavigateOutline } from "react-icons/io5";
-import { deletePickupLocation } from "../../actions/pickupLocationActions";
+import { deletePickupLocation, updatePickupLocation } from "../../actions/pickupLocationActions";
 
 const MyModal = (props) => {
   const pickupLocation = props.pickup;
@@ -16,9 +16,11 @@ const MyModal = (props) => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const token = JSON.parse(localStorage.getItem("jwtToken"));
   const user = JSON.parse(localStorage.getItem("user"));
+  const userId = user ? user.userId : null;
+
   const isDriver = user.roles.map((r) => {
     if (r["roleName"] === "DRIVER_USER") return true;
     return false;
@@ -30,25 +32,38 @@ const MyModal = (props) => {
 
   const handleNavigate = () => { };
 
+  const getCurrentDateTime = () => {
+    var currentdate = new Date();
+    return ("0" + currentdate.getDate()).slice(-2) + "-"
+      + ("0" + currentdate.getMonth() + 1).slice(-2) + "-"
+      + currentdate.getFullYear() + " "
+      + ("0" + currentdate.getHours()).slice(-2) + ":"
+      + ("0" + currentdate.getMinutes()).slice(-2) + ":"
+      + ("0" + currentdate.getSeconds()).slice(-2);
+  };
+
   const handleDone = () => {
-    // pickupLocation.status = true;
-    // updatePickupLocation(dispatch, pickupLocation, token).then((data) => {
-    //   if (
-    //     data.type === pickupLocationConstants.UPDATE_PICKUPLOCATION_SUCCESS
-    //   ) {
-    //     swal(
-    //       "Pickup Location cleaned!",
-    //       `${pickupLocation.city} succesfully cleaned`,
-    //       "success"
-    //     );
-    //   } else {
-    //     swal(
-    //       "Pickup Location Not cleaned!",
-    //       `${pickupLocation.city} is still dirty`,
-    //       "error"
-    //     );
-    //   }
-    // });
+    pickupLocation.status = true;
+    pickupLocation.dateCleaned = getCurrentDateTime();
+    pickupLocation.driverId = userId;
+
+    updatePickupLocation(dispatch, pickupLocation, token).then((data) => {
+      if (
+        data.type === pickupLocationConstants.UPDATE_PICKUPLOCATION_SUCCESS
+      ) {
+        swal(
+          "Pickup Location cleaned!",
+          `${pickupLocation.city} succesfully cleaned`,
+          "success"
+        );
+      } else {
+        swal(
+          "Pickup Location Not cleaned!",
+          `${pickupLocation.city} is still dirty`,
+          "error"
+        );
+      }
+    });
   };
 
   const handleDelete = () => {

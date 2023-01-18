@@ -9,7 +9,7 @@ import * as authConstants from "../constants/authConstants";
 import swal from 'sweetalert';
 
 const SigninPage = () => {
-    const [username, setUsername] = useState("prakash.21gupta@gmail.com");
+    const [username, setUsername] = useState("driver@gmail.com");
     const [password, setPassword] = useState("12345678");
 
     const navigate = useNavigate();

@@ -14,6 +14,8 @@ public interface PickupLocationService {
 
     List<PickupLocation> getPickupLocationByUserId(Long userId);
 
+    List<PickupLocation> getPickupLocationByCities(String[] cities);
+
     PickupLocation updatePickupLocation(Long pickLocId, PickupLocation pickupLocation) throws NotFoundException, IllegalArgumentException, DateTimeParseException;
 
     void deletePickupLocation(Long pickLocId) throws NotFoundException;

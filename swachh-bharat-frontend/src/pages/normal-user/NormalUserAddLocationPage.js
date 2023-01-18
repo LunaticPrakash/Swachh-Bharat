@@ -165,7 +165,7 @@ const NormalUserAddLocationPage = () => {
             </div>
             <div className="container__addLocationContent">
                 <p style={{ fontSize: "1.5rem", color: "black", margin: "10px" }}>
-                    Add Location
+                    {pickLocId ? "Edit Location" : "Add Location"}
                 </p>
 
                 <FormContainer>

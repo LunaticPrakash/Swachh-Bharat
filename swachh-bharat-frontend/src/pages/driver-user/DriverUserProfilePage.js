@@ -9,16 +9,17 @@ import * as userProfileConstants from "../../constants/userProfileConstants";
 import swal from 'sweetalert';
 import { Country, State, City } from "country-state-city";
 import FormContainer from '../../components/FormContainer';
+import { FcInfo } from "react-icons/fc";
 
 const DriverUserProfilePage = () => {
 
     const token = JSON.parse(localStorage.getItem("jwtToken"));
     const user = JSON.parse(localStorage.getItem("user"));
     const userId = user ? user.userId : null;
-    const isDriver = user.roles.forEach((r) => {
+    const isDriver = user.roles.map((r) => {
         if (r["roleName"] === "DRIVER_USER") return true;
         return false;
-    });
+    })[0];
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -28,34 +29,11 @@ const DriverUserProfilePage = () => {
     const [password, setPassword] = useState("");
     const [mobNumber, setMobNumber] = useState(user ? user.mobNumber : "");
     const [address, setAddress] = useState(user ? user.address : "");
-    const [country, setCountry] = useState({});
-    const [state, setState] = useState({});
-    const [city, setCity] = useState({});
+    const [pickupCities, setPickupCities] = useState(user && isDriver && user.pickupCities ? user.pickupCities.toString() : "");
 
-    let allCountries = [];
-    Country.getAllCountries().forEach((country) => {
-        allCountries = [
-            ...allCountries,
-            { id: country.isoCode, name: country.name },
-        ];
-    });
 
-    const getStatesOfCountry = (countryId) =>
-        State.getStatesOfCountry(countryId).map((state) => {
-            return { id: state.isoCode, name: state.name };
-        });
-
-    const getCitiesOfState = (countryId, stateId) =>
-        City.getCitiesOfState(countryId, stateId).map((city) => {
-            return { name: city.name };
-        });
-
-    const addCityButtonHandler = () => {
-
-    }
-
-    const submitHandler = () => {
-        // e.preventDefault();
+    const submitHandler = (e) => {
+        e.preventDefault();
         const user = {
             name: name,
             username: username,
@@ -63,7 +41,7 @@ const DriverUserProfilePage = () => {
             mobNumber: mobNumber,
             address: address,
             coinsEarned: 0,
-            pickupCities: [city.name]
+            pickupCities: isDriver ? pickupCities.trim().split(",").map(c => c.trim()) : []
         }
 
         updateUserProfile(dispatch, user, token).then((data) => {
@@ -115,23 +93,18 @@ const DriverUserProfilePage = () => {
                                     </div>
                                 </div>
                                 <hr className="my-4" />
+                                <h5>Pickup Cities</h5>
                                 <ul className="list-group list-group-flush">
-                                    <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 className="mb-0">City - 1</h6>
-                                        <span className="text-secondary">bootdey</span>
-                                    </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 className="mb-0">City - 2</h6>
-                                        <span className="text-secondary">bootdey</span>
-                                    </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 className="mb-0">City - 3</h6>
-                                        <span className="text-secondary">bootdey</span>
-                                    </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 className="mb-0">City - 4</h6>
-                                        <span className="text-secondary">bootdey</span>
-                                    </li>
+                                    {
+                                        user && isDriver && user.pickupCities.map((c, index) => {
+                                            return (
+                                                <li key={index} className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                                    <h6 className="mb-0">{`City - ${index + 1}`}</h6>
+                                                    <span className="text-secondary">{c}</span>
+                                                </li>
+                                            );
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -184,92 +157,16 @@ const DriverUserProfilePage = () => {
                                             onChange={(e) => setAddress(e.target.value)} />
                                     </div>
                                 </div>
-                                <div className="row mb-3">
+                                {isDriver && <div className="row mb-3">
                                     <div className="col-sm-3">
-                                        <h6 className="mb-0">Pickup Cities</h6>
+                                        <h6 className="mb-0">Pickup Cities <FcInfo title='Write cities name separated by comma.'/> </h6>
                                     </div>
                                     <div className="col-sm-9 text-secondary">
-                                        <Form onSubmit={addCityButtonHandler} className="addLocation__form">
-                                            <div>
-                                                <label htmlFor="country-select">Choose Country:</label>
-                                                <Form.Select
-                                                    defaultValue={""}
-                                                    aria-label="Choose Country"
-                                                    id="country-select"
-                                                    onChange={(e) => {
-                                                        setCountry(JSON.parse(e.target.value));
-                                                    }}
-                                                >
-                                                    <option value="" disabled>Choose Country</option>
-                                                    {allCountries ? (
-                                                        allCountries.map((country, index) => (
-                                                            <option key={index} value={JSON.stringify(country)}>
-                                                                {country.name}
-                                                            </option>
-                                                        ))
-                                                    ) : (
-                                                        <option value="" disabled>No countries to display</option>
-                                                    )}
-                                                </Form.Select>
-                                            </div>
-                                            <div className="my-3">
-                                                <label htmlFor="state-select">Choose State:</label>
-                                                <Form.Select
-                                                    defaultValue={""}
-                                                    aria-label="Choose State"
-                                                    id="state-select"
-                                                    onChange={(e) => {
-                                                        setState(JSON.parse(e.target.value));
-                                                    }}
-                                                >
-                                                    <option value="" disabled>Choose State</option>
-                                                    {Object.keys(country).length ? (
-                                                        getStatesOfCountry(country.id).map((state, index) => (
-                                                            <option key={index} value={JSON.stringify(state)}>
-                                                                {state.name}
-                                                            </option>
-                                                        ))
-                                                    ) : (
-                                                        <option value="" disabled>No states to display</option>
-                                                    )}
-                                                </Form.Select>
-                                            </div>
-
-                                            <div className="my-3">
-                                                <label htmlFor="city-select">Choose City:</label>
-                                                <Form.Select
-                                                    defaultValue={""}
-                                                    aria-label="Choose City"
-                                                    id="city-select"
-                                                    onChange={(e) => {
-                                                        setCity(JSON.parse(e.target.value));
-                                                    }}
-                                                >
-                                                    <option value="">Choose City</option>
-                                                    {Object.keys(country).length && Object.keys(state).length ? (
-                                                        getCitiesOfState(country.id, state.id).map((city, index) => (
-                                                            <option key={index} value={JSON.stringify(city)}>
-                                                                {city.name}
-                                                            </option>
-                                                        ))
-                                                    ) : (
-                                                        <option value="" disabled>No cities to display</option>
-                                                    )}
-                                                </Form.Select>
-                                            </div>
-                                            <div style={{ width: "fit-content", margin: "auto" }}>
-                                                <Button
-                                                    className="my-3 addLocation__form__btn"
-                                                    type="submit"
-                                                    variant="primary"
-                                                    onClick={addCityButtonHandler}
-                                                >
-                                                    {"Add"}
-                                                </Button>
-                                            </div>
-                                        </Form>
+                                        <input type="text" className="form-control" value={pickupCities}
+                                            onChange={(e) => setPickupCities(e.target.value)} />
                                     </div>
                                 </div>
+                                }
                                 <div className="row">
                                     <div className="col-sm-3"></div>
                                     <div className="col-sm-9 text-secondary">
@@ -288,7 +185,8 @@ const DriverUserProfilePage = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
+
 
 export default DriverUserProfilePage

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.format.DateTimeParseException;
+import java.util.Arrays;
 import java.util.List;
 
 @CrossOrigin
@@ -45,6 +46,16 @@ public class PickupLocationController {
     public ResponseEntity<?> getPickupLocationByUserId(@PathVariable Long userId) {
         try {
             List<PickupLocation> pickupLocations = pickupLocationService.getPickupLocationByUserId(userId);
+            return ResponseEntity.status(HttpStatus.OK).body(pickupLocations);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/cities")
+    public ResponseEntity<?> getPickupLocationByCities(@RequestParam(required = false, name = "cities") String[] cities) {
+        try {
+            List<PickupLocation> pickupLocations = pickupLocationService.getPickupLocationByCities(cities);
             return ResponseEntity.status(HttpStatus.OK).body(pickupLocations);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());

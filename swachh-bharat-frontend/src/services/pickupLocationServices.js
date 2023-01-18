@@ -40,6 +40,26 @@ const fetchPickupLocation = async (userId, token) => {
     }
 };
 
+const fetchPickupLocationByCities = async (cities, token) => {
+    try {
+        const config = {
+            headers: { Authorization: `Bearer ${token}` },
+        };
+        const { data } = await axios.get(`/api/pickup-location/cities?cities=${cities.toString()}`, config);
+        console.log(
+            "pickupLocationService:fetchPickupLocation() Success: ",
+            data
+        );
+        return data;
+    } catch (error) {
+        console.error(
+            "pickupLocationService:fetchPickupLocation() Error: ",
+            error.response.data
+        );
+        return error.response.data;
+    }
+};
+
 const updatePickupLocation = async (pickupLocation, token) => {
     try {
         const config = {
@@ -104,6 +124,7 @@ const deletePickupLocation = async (pickLocId, token) => {
 const pickupLocationServices = {
     addPickupLocation,
     fetchPickupLocation,
+    fetchPickupLocationByCities,
     updatePickupLocation,
     deletePickupLocation,
 };

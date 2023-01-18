@@ -7,7 +7,7 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import { RiHandHeartLine } from "react-icons/ri";
 import { GiMineTruck } from "react-icons/gi";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPickupLocation } from '../../actions/pickupLocationActions';
+import { fetchPickupLocation, fetchPickupLocationByCities } from '../../actions/pickupLocationActions';
 import TableRow from '../../components/tablerow/TableRow';
 import MyModal from '../../components/modal/MyModal';
 
@@ -16,6 +16,10 @@ const DriverUserDashboardPage = () => {
     const token = JSON.parse(localStorage.getItem("jwtToken"));
     const user = JSON.parse(localStorage.getItem("user"));
     const userId = user ? user.userId : null;
+    const isDriver = user.roles.map((r) => {
+        if (r["roleName"] === "DRIVER_USER") return true;
+        return false;
+    })[0];
 
     const [show, setShow] = useState(false);
     const [selectedLoc, setSelectedLoc] = useState();
@@ -24,6 +28,8 @@ const DriverUserDashboardPage = () => {
         (state) => state.pickupLocationReducer
     );
     const [pickupLocations, setPickupLocations] = useState(pickupLocationReducer.pickupLocations);
+
+    const pickupCities = user && isDriver ? user.pickupCities : [];
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -62,13 +68,13 @@ const DriverUserDashboardPage = () => {
     };
 
     useEffect(() => {
-        fetchPickupLocation(dispatch, userId, token).then((data) => {
+        fetchPickupLocationByCities(dispatch, pickupCities, token).then((data) => {
             setPickupLocations(data.payload);
         });
     }, [dispatch, token]);
 
     useEffect(() => {
-        if (!localStorage.getItem("jwtToken")) navigate("/");
+        if (!localStorage.getItem("jwtToken") || !isDriver) navigate("/");
     }, [navigate]);
 
     return (
