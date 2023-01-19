@@ -4,7 +4,7 @@ import { IoNavigateOutline } from "react-icons/io5";
 
 const TableRow = ({ row, onClickHandler }) => {
   const handleNavigate = () => { };
-  const address = row.landmark.trim() + ", " + row.street.trim();
+  const address = row.landmark.trim() + ", " + row.street.trim() + ", " + row.city.trim() + ", " + row.state.trim() + ", " + row.country.trim();
   const dateAdded = row.dateAdded.split(" ")[0];
   const dateCleaned = row.dateCleaned && row.dateCleaned.split(" ")[0];
 
@@ -12,7 +12,7 @@ const TableRow = ({ row, onClickHandler }) => {
     var months = ["Jan", "Feb", "March", "Apr", "May", "June",
       "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    return months[Number(monthNum)+1];
+    return months[Number(monthNum) + 1];
   }
   return (
     <div className="tableRow__container" onClick={onClickHandler}>

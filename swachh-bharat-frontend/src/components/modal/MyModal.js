@@ -190,7 +190,7 @@ const MyModal = (props) => {
             {isDriver ? <MdDoneOutline /> : <MdDeleteOutline />}
           </div>
           <div className="modal-footer__icon-text">
-            {isDriver ? "Done" : "Delete"}
+            {isDriver ? "Cleaned" : "Delete"}
           </div>
         </div>
       </div>

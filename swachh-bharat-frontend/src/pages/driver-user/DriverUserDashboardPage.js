@@ -58,7 +58,7 @@ const DriverUserDashboardPage = () => {
             title: "Pending",
             value: pickupLocations ? pickupLocations.filter((loc) => !loc.status).length : "N/A",
             icon: <GiMineTruck />,
-            subtitle: "Don't worry, We're on the way!",
+            subtitle: "Ja Driver Ja (Go Driver Go!)",
         },
     ];
 
