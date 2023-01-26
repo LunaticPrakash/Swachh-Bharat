@@ -176,21 +176,21 @@ const MyModal = (props) => {
         </div>
       </Modal.Body>
       <div className="modal-footer">
-        <div onClick={isDriver ? handleNavigate : handleEdit} className="model-footer__option">
+        <div onClick={isDriver ? handleNavigate : pickupLocation.status ? handleClose : handleEdit} className="model-footer__option">
           <div className="modal-footer__icon">
-            {isDriver ? <IoNavigateOutline /> : <FaRegEdit />}
+            {isDriver ? <IoNavigateOutline /> : pickupLocation.status ? <MdDoneOutline /> : <FaRegEdit />}
           </div>
           <div className="modal-footer__icon-text">
-            {isDriver ? "Navigate" : "Edit"}
+            {isDriver ? "Navigate" : pickupLocation.status ? "Ok" : "Edit"}
           </div>
         </div>
 
-        <div onClick={isDriver ? handleDone : handleDelete} className="model-footer__option red">
+        <div onClick={isDriver ? pickupLocation.status ? handleClose : handleDone : handleDelete} className="model-footer__option red">
           <div className="modal-footer__icon">
             {isDriver ? <MdDoneOutline /> : <MdDeleteOutline />}
           </div>
           <div className="modal-footer__icon-text">
-            {isDriver ? "Cleaned" : "Delete"}
+            {isDriver ? pickupLocation.status ? "Ok" : "Cleaned" : "Delete"}
           </div>
         </div>
       </div>
