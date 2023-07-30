@@ -57,6 +57,8 @@ public class AuthServiceImpl implements AuthService {
 
                 if (isDriver) {
                     role = roleRepository.findById("DRIVER_USER").isPresent() ? roleRepository.findById("DRIVER_USER").get() : null;
+                    String[] pickupCities = new String[10];
+                    user.setPickupCities(pickupCities);
                 } else {
                     role = roleRepository.findById("NORMAL_USER").isPresent() ? roleRepository.findById("NORMAL_USER").get() : null;
                 }
