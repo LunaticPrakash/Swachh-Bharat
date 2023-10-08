@@ -10,11 +10,11 @@ In **Development**.
   - MySQL
 
 ## Features :-
-  - Provides role-based authorization. There are two types of user here: Normal User (who will update the garbage dump location) & Driver User (who will pickup/clean the dump).
-  - After each successfull pickup, both Normal User & Driver User will get E-coins.
+  - Provides role-based authorization. There are two types of user here: Normal User (who will add/update the garbage dump location) & Driver User (who will pickup/clean the dump).
+  - After each successfull pickup, both Normal User & Driver User will get E-coins. (In Progress)
   - A responsive Dashboard to see the added location details & coins earned.
   - User also have the option of uploading the image of location.
-  - There is an option to track the location, it will open the Google Maps and shows the route to the garbage point.
+  - There is an option to track the location, it will open the Google Maps and shows the route to the garbage point. (In Progress)
   - User can edit or delete the added location as per requirement.
   - Whenever user added a garbage dump location, a notification will be sent to the Driver Users of that same city, where that added garbage dump belongs.
   - Wrote unit-tests for backend services using Junit5 + Mockito + MockMvc.
